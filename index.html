@@ -6,104 +6,88 @@
 <style>
 :root{--bg:#10131d;--panel:#1b2130;--panel2:#252e40;--gold:#ffd166;--mint:#63e6be;--pink:#ff85a1;--text:#f5f7ff;--muted:#aab4c8}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#28334b,#10131d 55%);color:var(--text);font-family:system-ui,Arial,sans-serif;min-height:100vh}
-header{padding:22px 16px;text-align:center}h1{margin:0;font-size:clamp(2rem,6vw,3.2rem);letter-spacing:1px}header p{color:var(--muted);margin:7px 0}
-main{max-width:1050px;margin:auto;padding:0 14px 30px;display:grid;grid-template-columns:1.2fr .8fr;gap:15px}
-.panel{background:linear-gradient(145deg,#20293a,#171d2b);border:1px solid #38445b;border-radius:20px;padding:17px;box-shadow:0 12px 35px #0005}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.stat{background:#121827;padding:10px;border-radius:12px;text-align:center}.stat small{display:block;color:var(--muted)}.stat strong{font-size:1.2rem}
-.arena{text-align:center;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#39465f,#182132 72%)}
-#bear{font-size:clamp(6rem,22vw,10rem);line-height:1.2;filter:drop-shadow(0 10px 5px #0006);transition:transform .12s;user-select:none}
-#bear.hit{transform:rotate(-12deg) scale(.9)}#bearName{font-size:1.25rem;font-weight:800;margin:5px}
-#bearHp{width:min(80%,330px);height:13px;border-radius:20px;background:#0b1020;overflow:hidden;margin:8px}#hpFill{height:100%;width:100%;background:linear-gradient(90deg,#ff6b6b,#ffd166);transition:width .2s}
-button{border:0;border-radius:12px;padding:12px 14px;font-weight:800;font-size:1rem;cursor:pointer;color:#151a25;background:var(--gold);transition:transform .1s,filter .1s}button:hover{filter:brightness(1.08)}button:active{transform:scale(.97)}button:disabled{opacity:.4;cursor:not-allowed}
-#hitBtn{font-size:1.2rem;padding:15px 30px;background:linear-gradient(135deg,#ffd166,#ff9f43);margin-top:8px}
-.meter{height:12px;background:#0b1020;border-radius:20px;overflow:hidden;margin:6px 0 12px}.meter div{height:100%;background:linear-gradient(90deg,#63e6be,#a8f0d8);width:100%;transition:width .2s}
-.side{display:flex;flex-direction:column;gap:15px}.shopItem{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #354056}.shopItem:last-child{border:0}.shopItem small{display:block;color:var(--muted)}.shopItem button{font-size:.85rem;padding:9px}
-.notice{color:var(--mint);min-height:24px;font-weight:700;margin-top:8px}.debt{border-color:#80545f;background:linear-gradient(145deg,#382630,#211d2b)}.debt strong{color:var(--pink)}.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.muted{color:var(--muted)}#dayBar{height:8px;background:#111827;border-radius:10px;overflow:hidden;margin:10px 0}#dayFill{height:100%;width:0;background:var(--pink)}
-@media(max-width:760px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.arena{min-height:280px}}
+header{padding:20px 14px;text-align:center}h1{margin:0;font-size:clamp(2rem,6vw,3rem)}header p{color:var(--muted);margin:7px 0}
+main{max-width:1200px;margin:auto;padding:0 14px 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.panel{background:linear-gradient(145deg,#20293a,#171d2b);border:1px solid #38445b;border-radius:18px;padding:15px;box-shadow:0 12px 35px #0005}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.stat{background:#121827;padding:9px;border-radius:12px;text-align:center}.stat small{display:block;color:var(--muted)}.stat strong{font-size:1.1rem}
+.arena{text-align:center;min-height:320px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#39465f,#182132 72%)}#bear{font-size:clamp(6rem,20vw,9rem);line-height:1.2;filter:drop-shadow(0 10px 5px #0006);transition:transform .12s;user-select:none}#bear.hit{transform:translateX(20px) rotate(18deg) scale(.88)}#bearName{font-size:1.2rem;font-weight:800;margin:5px}#bearHp{width:min(80%,350px);height:13px;border-radius:20px;background:#0b1020;overflow:hidden;margin:8px}#hpFill{height:100%;width:100%;background:linear-gradient(90deg,#ff6b6b,#ffd166);transition:width .2s}
+button{border:0;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer;color:#151a25;background:var(--gold)}button:disabled{opacity:.4;cursor:not-allowed}button:active{transform:scale(.97)}#hitBtn{font-size:1.15rem;padding:14px 28px;background:linear-gradient(135deg,#ffd166,#ff9f43);margin-top:8px}.meter{height:11px;width:min(80%,350px);background:#0b1020;border-radius:20px;overflow:hidden;margin:8px}.meter div{height:100%;background:linear-gradient(90deg,#63e6be,#a8f0d8);width:100%}
+.side{display:flex;flex-direction:column;gap:13px}.shopItem{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid #354056}.shopItem:last-child{border:0}.shopItem small{display:block;color:var(--muted)}.shopItem button{font-size:.82rem;padding:8px}.notice{color:var(--mint);min-height:23px;font-weight:700;margin-top:7px}.muted{color:var(--muted)}.row{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.debt{border-color:#80545f}.debt strong{color:var(--pink)}.meterline{height:8px;background:#111827;border-radius:10px;overflow:hidden;margin:8px 0}.meterline div{height:100%;background:var(--pink)}.scroll{max-height:300px;overflow:auto;padding-right:4px}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.tabs button{background:#344158;color:white}.tabs button.active{background:var(--gold);color:#171b25}.pill{display:inline-block;padding:3px 8px;border-radius:99px;background:#33445d;color:#dce8ff;font-size:.75rem}.special{background:linear-gradient(130deg,#57458a,#273d64);border-color:#8066bd}.admin{border-color:#bd8d45}.field{background:#111827;color:white;border:1px solid #46536c;border-radius:9px;padding:10px;max-width:100%}.leaderrow{display:flex;justify-content:space-between;padding:7px;border-bottom:1px solid #344056}.smallbtn{padding:7px 9px;font-size:.8rem}
+@media(max-width:800px){main{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.arena{min-height:275px}}
 </style>
 </head>
 <body>
-<header><h1>🧸 TEDDY HAMMER TYCOON</h1><p>¡Martillá, ganá monedas y convertite en una leyenda del taller!</p></header>
+<header><h1>🧸 TEDDY HAMMER TYCOON</h1><p>¡Entrená, mejorá tu martillo, desbloqueá 200 osos y pagá tus deudas!</p></header>
 <main>
 <section>
  <div class="stats">
-  <div class="stat"><small>💵 Dinero</small><strong id="money">$0</strong></div>
-  <div class="stat"><small>🔨 Fuerza</small><strong id="power">1</strong></div>
-  <div class="stat"><small>⚡ Estamina</small><strong id="staminaText">100/100</strong></div>
+  <div class="stat"><small>💵 Dinero</small><strong id="money">$0</strong></div><div class="stat"><small>🔨 Daño</small><strong id="power">1</strong></div>
+  <div class="stat"><small>⚡ Estamina</small><strong id="staminaText">100/100</strong></div><div class="stat"><small>♻️ Renacimientos</small><strong id="rebirths">0</strong></div>
  </div>
- <div class="panel arena">
-  <div class="muted">OSO ACTUAL</div><div id="bear">🧸</div><div id="bearName">Osito de trapo</div>
-  <div id="bearHp"><div id="hpFill"></div></div><div class="muted" id="hpText">Vida: 10 / 10</div>
-  <button id="hitBtn">🔨 ¡MARTILLAR!</button>
-  <div class="meter"><div id="staminaFill"></div></div><small class="muted">La estamina se recupera sola. Cada golpe consume energía.</small>
-  <div class="notice" id="notice" aria-live="polite">¡Tu primer oso te está esperando!</div>
+ <div class="panel arena"><div class="muted">OSO ACTUAL · <span id="bearIndex">1 / 200</span></div><div id="bear">🧸</div><div id="bearName">Osito de trapo</div>
+  <div id="bearHp"><div id="hpFill"></div></div><div class="muted" id="hpText">Vida: 10 / 10</div><button id="hitBtn">🔨 ¡MARTILLAR!</button>
+  <div class="meter"><div id="staminaFill"></div></div><small class="muted" id="staminaHint">La energía se recupera sola.</small><div class="notice" id="notice" aria-live="polite">¡Empezá con tu primer osito!</div>
  </div>
- <div class="panel" style="margin-top:15px">
-  <div class="row"><strong>📅 Semana de trabajo</strong><strong id="dayText">Día 1 / 7</strong></div>
-  <div id="dayBar"><div id="dayFill"></div></div>
-  <small class="muted">Cada 7 días llega una deuda. Guardá dinero para pagarla y seguir progresando.</small>
- </div>
+ <div class="panel" style="margin-top:13px"><div class="row"><b>📅 Semana de trabajo</b><b id="dayText">Día 1 / 7</b></div><div class="meterline"><div id="dayFill" style="width:14%"></div></div><div class="row"><span class="muted" id="debtInfo">La deuda vence cada 7 días.</span><b id="debtAmount">$100</b></div><button id="payDebt" style="margin-top:8px;background:#ff85a1">Pagar deuda</button><span class="muted" id="debtStatus" style="margin-left:8px"></span></div>
+ <div class="panel" style="margin-top:13px"><div class="row"><b>🏆 Ranking de jugadores</b><span class="pill" id="rankScope">Este dispositivo</span></div><div class="row" style="margin:8px 0"><input id="playerName" class="field" maxlength="18" placeholder="Tu nombre"><button id="saveName" class="smallbtn">Guardar nombre</button></div><div id="leaderboard"></div><small class="muted">El ranking de esta versión se guarda en este navegador. Para que sea global entre todos los jugadores hay que conectar una base de datos online.</small></div>
 </section>
 <aside class="side">
- <div class="panel">
-  <h2 style="margin:0 0 8px">🛠️ Mejoras</h2>
-  <div class="shopItem"><div><b>💪 Fuerza del martillo</b><small>+1 daño por golpe · Nivel <span id="powerLevel">1</span></small><small>Precio: <span id="powerCost">$30</span></small></div><button id="powerBuy">Mejorar</button></div>
-  <div class="shopItem"><div><b>⚡ Velocidad</b><small>Golpeá más rápido · Nivel <span id="speedLevel">1</span></small><small>Precio: <span id="speedCost">$40</span></small></div><button id="speedBuy">Mejorar</button></div>
-  <div class="shopItem"><div><b>🔋 Capacidad de estamina</b><small>+20 energía máxima · Nivel <span id="energyLevel">1</span></small><small>Precio: <span id="energyCost">$50</span></small></div><button id="energyBuy">Mejorar</button></div>
- </div>
- <div class="panel">
-  <h2 style="margin:0 0 5px">🧸 Tienda de osos</h2><small class="muted">Desbloqueá osos más resistentes que dan mejores recompensas.</small>
-  <div id="bearShop"></div>
- </div>
- <div class="panel debt">
-  <div class="row"><h2 style="margin:0">📨 Deuda semanal</h2><strong id="debtAmount">$100</strong></div>
-  <p class="muted" id="debtInfo">Tenés 7 días para prepararte.</p>
-  <button id="payDebt" style="background:#ff85a1;width:100%">Pagar deuda</button>
-  <small class="muted" id="debtStatus">Todavía no vence.</small>
- </div>
+ <div class="panel"><div class="row"><h2 style="margin:0">🔨 Martillos</h2><span class="pill">100 tipos</span></div><div class="muted" id="hammerCurrent">Martillo de madera</div><div id="hammerShop" class="scroll"></div></div>
+ <div class="panel"><div class="row"><h2 style="margin:0">🧪 Mejoras</h2><span class="pill">100 mejoras</span></div><div class="tabs"><button class="active" data-upgrade-tab="all">Todas</button><button data-upgrade-tab="debt">Deuda</button><button data-upgrade-tab="combat">Combate</button><button data-upgrade-tab="utility">Utilidad</button></div><div id="upgradeShop" class="scroll"></div></div>
+ <div class="panel"><div class="row"><h2 style="margin:0">🧸 Tienda de osos</h2><span class="pill">200 osos</span></div><input id="bearSearch" class="field" placeholder="Buscar oso..." style="width:100%;margin:8px 0"><div id="bearShop" class="scroll"></div></div>
+ <div class="panel special"><h2 style="margin:0">🌟 Objetos especiales</h2><p class="muted">Herramientas de fantasía y juguetes con efectos especiales.</p><div id="specialShop"></div></div>
+ <div class="panel"><h2 style="margin:0">♻️ Renacimiento</h2><p class="muted">Reiniciá tu progreso principal a cambio de duplicar tus ganancias por cada renacimiento.</p><div class="row"><b>Multiplicador actual</b><strong id="multiplier">x1</strong></div><p id="rebirthNeed" class="muted">Desbloqueá el oso 10 para renacer.</p><button id="rebirthBtn" disabled>Renacer</button></div>
+ <div class="panel admin"><h2 style="margin:0">🛡️ Panel de administrador</h2><p class="muted">Ingresá el código para abrir las herramientas de prueba.</p><div class="row"><input id="adminCode" class="field" placeholder="Código admin"><button id="adminLogin">Entrar</button></div><div id="adminTools" hidden><p class="muted">Modo admin activado en esta sesión.</p><div class="row"><input id="adminMoney" class="field" type="number" placeholder="Dinero a agregar"><button id="giveMoney">Dar dinero</button></div><div class="row" style="margin-top:7px"><button id="unlockAll">Desbloquear osos</button><button id="clearSave">Reiniciar partida</button></div></div><small class="muted">Aviso: el código está dentro del juego y no es seguridad real para un servidor online.</small></div>
+ <div class="panel"><div class="row"><b>🔊 Sonido</b><button id="soundToggle" class="smallbtn">Activar sonido</button></div><small class="muted">Efectos generados por el juego: golpe, compra y victoria.</small></div>
 </aside>
 </main>
 <script>
-const bears=[
- {name:"Osito de trapo",emoji:"🧸",hp:10,reward:5,cost:0},
- {name:"Oso de peluche",emoji:"🐻",hp:30,reward:15,cost:75},
- {name:"Oso gigante",emoji:"🐻‍❄️",hp:80,reward:40,cost:220},
- {name:"Oso de oro",emoji:"✨",hp:180,reward:100,cost:600},
- {name:"Oso galáctico",emoji:"🌌",hp:400,reward:250,cost:1500},
- {name:"Oso legendario",emoji:"👑",hp:900,reward:600,cost:4000}
+const $=id=>document.getElementById(id),fmt=n=>"$"+Math.floor(n).toLocaleString("es-AR");
+const bearNames=["Osito de trapo","Oso de peluche","Oso polar","Oso gigante","Oso de miel","Oso aventurero","Oso pirata","Oso ninja","Oso robot","Oso dragón","Oso volcánico","Oso de cristal","Oso eléctrico","Oso lunar","Oso solar","Oso arcoíris","Oso fantasma","Oso de magma","Oso cósmico","Oso supremo"];
+const bearEmojis=["🧸","🐻","🐼","🐻‍❄️","🍯","🧢","🏴‍☠️","🥷","🤖","🐉","🌋","💎","⚡","🌙","☀️","🌈","👻","🔥","🌌","👑"];
+const bears=Array.from({length:200},(_,i)=>{let tier=i+1;return{name:bearNames[i]||("Oso "+(tier<100?"Épico ":"Mítico ")+tier),emoji:bearEmojis[i]||["🧸","🐻","🐼","🤖","🐲","✨","👑","🌟"][i%8],hp:Math.floor(10*Math.pow(1.22,i)),reward:Math.floor(5*Math.pow(1.19,i)),cost:i===0?0:Math.floor(65*Math.pow(1.22,i-1))}});
+const hammerNames=["Martillo de madera","Mazo de goma","Martillo de hierro","Martillo de acero","Martillo dorado","Martillo de cristal","Martillo eléctrico","Martillo de lava","Martillo de diamante","Martillo celestial"];
+const hammers=Array.from({length:100},(_,i)=>({name:hammerNames[i]||("Martillo "+(i+1)+" · "+["Cósmico","Legendario","Cuántico","Arcoíris","Místico"][i%5]),damage:i+1,cost:i===0?0:Math.floor(90*Math.pow(1.24,i))}));
+const upgradeDefs=[
+["Entrenamiento de fuerza","combat","Daño +","damage"],["Técnica veloz","combat","Velocidad +","speed"],["Pulso de energía","utility","Regeneración +","regen"],["Batería extra","utility","Estamina máxima +","stamina"],["Negociador de deudas","debt","Deuda -","debt"],["Cupón del taller","utility","Descuento de tienda +","discount"],["Golpe crítico","combat","Probabilidad crítica +","crit"],["Bolsa de monedas","utility","Ganancia extra +","bonus"],["Patas ligeras","combat","Velocidad de golpe +","speed"],["Seguro semanal","debt","Deuda semanal -","debt"]
 ];
-let money=0,power=1,speed=1,maxStamina=100,stamina=100,day=1,debt=100,debtPaid=false,selected=0,hp=bears[0].hp,hitLock=false;
-let powerLevel=1,speedLevel=1,energyLevel=1;
-const $=id=>document.getElementById(id);
-const fmt=n=>"$"+Math.floor(n).toLocaleString("es-AR");
-function notify(t){$("notice").textContent=t}
+const upgrades=Array.from({length:100},(_,i)=>{let d=upgradeDefs[i%upgradeDefs.length];return{id:i,name:i<10?d[0]:d[0]+" "+(Math.floor(i/10)+1)+"-"+(i%10+1),category:d[1],desc:d[2],type:d[3],cost:Math.floor(45*Math.pow(1.16,i)),amount:1+Math.floor(i/8)}});
+const specials=[{name:"Mazo arcoíris",emoji:"🌈",cost:500,desc:"Multiplica el daño por 2",type:"damage"},{name:"Martillo cohete de juguete",emoji:"🚀",cost:1200,desc:"Acelera los golpes",type:"speed"},{name:"Lluvia de confeti",emoji:"🎉",cost:2500,desc:"Duplica la recompensa del próximo oso",type:"bonus"},{name:"Batería infinita",emoji:"🔋",cost:4000,desc:"Restaura toda la estamina",type:"energy"}];
+let money=0,power=1,speed=1,maxStamina=100,stamina=100,day=1,debt=100,debtPaid=false,selected=0,hp=bears[0].hp,rebirthCount=0,hammerIndex=0,ownedHammers=1,ownedUpgrades=[],ownedBears=1,discount=0,debtReduction=0,regen=2,bonus=1,crit=0,soundOn=false,audioCtx=null,hitLock=false,upgradeTab="all",player="Jugador",admin=false;
+function beep(freq=220,duration=.08,wave="sine"){if(!soundOn)return;try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();let o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=wave;o.frequency.value=freq;g.gain.setValueAtTime(.06,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration)}catch(e){}}
+function note(t){$("notice").textContent=t}
+function currentDebt(){return Math.max(10,Math.ceil(debt*(1-debtReduction/100)))}
 function render(){
- $("money").textContent=fmt(money);$("power").textContent=power;$("staminaText").textContent=Math.floor(stamina)+"/"+maxStamina;
- $("staminaFill").style.width=(stamina/maxStamina*100)+"%";$("powerLevel").textContent=powerLevel;$("speedLevel").textContent=speedLevel;$("energyLevel").textContent=energyLevel;
- const b=bears[selected];$("bear").textContent=b.emoji;$("bearName").textContent=b.name;$("hpText").textContent="Vida: "+Math.max(0,hp)+" / "+b.hp;$("hpFill").style.width=(Math.max(0,hp)/b.hp*100)+"%";
- $("powerCost").textContent=fmt(30*powerLevel);$("speedCost").textContent=fmt(40*speedLevel);$("energyCost").textContent=fmt(50*energyLevel);
- $("powerBuy").disabled=money<30*powerLevel;$("speedBuy").disabled=money<40*speedLevel;$("energyBuy").disabled=money<50*energyLevel;
- $("dayText").textContent="Día "+day+" / 7";$("dayFill").style.width=(day/7*100)+"%";$("debtAmount").textContent=fmt(debt);
- $("debtInfo").textContent=debtPaid?"¡Deuda de esta semana pagada!":"La deuda vence al terminar el día 7.";
- $("debtStatus").textContent=debtPaid?"Pagada ✓":(day===7?"¡Vence hoy!":"Faltan "+(7-day)+" días para el vencimiento.");
- $("payDebt").disabled=debtPaid||money<debt;
- $("bearShop").innerHTML=bears.map((x,i)=>'<div class="shopItem"><div><b>'+x.emoji+' '+x.name+'</b><small>Recompensa: '+fmt(x.reward)+' · Vida: '+x.hp+'</small><small>'+(i<=selected?"Desbloqueado": "Desbloqueo: "+fmt(x.cost))+'</small></div><button data-bear="'+i+'" '+(i<=selected?"":"")+'>'+(i===selected?"En uso":(i<selected?"Elegir":(i===selected+1?"Comprar":"Bloqueado")))+'</button></div>').join("");
- document.querySelectorAll("[data-bear]").forEach(btn=>btn.addEventListener("click",()=>{const i=+btn.dataset.bear;if(i===selected)return;if(i<selected){selected=i;hp=bears[selected].hp;notify("¡"+bears[selected].name+" equipado!")}else if(i===selected+1&&money>=bears[i].cost){money-=bears[i].cost;selected=i;hp=bears[selected].hp;notify("¡Compraste "+bears[selected].name+"!")}else if(i===selected+1){notify("No tenés suficiente dinero.")}else{notify("Desbloqueá primero el oso anterior.")}render()}));
- $("hitBtn").disabled=stamina<10||hitLock;
+ $("money").textContent=fmt(money);$("power").textContent=power;$("staminaText").textContent=Math.floor(stamina)+"/"+maxStamina;$("staminaFill").style.width=(stamina/maxStamina*100)+"%";$("rebirths").textContent=rebirthCount;$("multiplier").textContent="x"+Math.pow(2,rebirthCount);
+ let b=bears[selected];$("bear").textContent=b.emoji;$("bearName").textContent=b.name;$("bearIndex").textContent=(selected+1)+" / 200";$("hpText").textContent="Vida: "+Math.max(0,hp).toLocaleString("es-AR")+" / "+b.hp.toLocaleString("es-AR");$("hpFill").style.width=(Math.max(0,hp)/b.hp*100)+"%";$("hitBtn").disabled=stamina<10||hitLock;
+ $("dayText").textContent="Día "+day+" / 7";$("dayFill").style.width=(day/7*100)+"%";$("debtAmount").textContent=fmt(currentDebt());$("debtInfo").textContent="La deuda aumenta cada semana. Reducciones: "+debtReduction+"%";$("debtStatus").textContent=debtPaid?"Pagada ✓":(day===7?"¡Vence hoy!":"Faltan "+(7-day)+" días");$("payDebt").disabled=debtPaid||money<currentDebt();
+ $("hammerCurrent").textContent=hammers[hammerIndex].name+" · Daño base "+hammers[hammerIndex].damage;
+ $("hammerShop").innerHTML=hammers.map((h,i)=>'<div class="shopItem"><div><b>🔨 '+h.name+'</b><small>Daño base: '+h.damage+' · '+(i<ownedHammers?"Desbloqueado":fmt(h.cost))+'</small></div><button data-hammer="'+i+'" '+(i<ownedHammers?"":(i===ownedHammers?"":"disabled"))+'>'+(i===hammerIndex?"En uso":(i<ownedHammers?"Equipar":"Comprar"))+'</button></div>').join("");
+ $("upgradeShop").innerHTML=upgrades.filter(u=>upgradeTab==="all"||u.category===upgradeTab).map(u=>'<div class="shopItem"><div><b>'+u.name+'</b><small>'+u.desc+' '+u.amount+' · '+fmt(u.cost)+'</small></div><button data-upgrade="'+u.id+'" '+(ownedUpgrades.includes(u.id)||money<u.cost?"disabled":"")+'>'+(ownedUpgrades.includes(u.id)?"Comprada":"Comprar")+'</button></div>').join("");
+ let q=($("bearSearch").value||"").toLowerCase();$("bearShop").innerHTML=bears.map((x,i)=>({x,i})).filter(o=>o.x.name.toLowerCase().includes(q)).map(({x,i})=>'<div class="shopItem"><div><b>'+x.emoji+' '+x.name+'</b><small>Premio '+fmt(x.reward)+' · Vida '+x.hp.toLocaleString("es-AR")+'</small><small>'+(i<ownedBears?"Desbloqueado":fmt(x.cost))+'</small></div><button data-bear="'+i+'" '+(i>=ownedBears&&i!==ownedBears?"disabled":"")+'>'+(i===selected?"En uso":(i<ownedBears?"Elegir":"Comprar"))+'</button></div>').join("");
+ $("specialShop").innerHTML=specials.map((s,i)=>'<div class="shopItem"><div><b>'+s.emoji+' '+s.name+'</b><small>'+s.desc+' · '+fmt(s.cost)+'</small></div><button data-special="'+i+'">Usar</button></div>').join("");
+ $("rebirthNeed").textContent="Necesitás desbloquear el oso "+Math.min(200,(rebirthCount+1)*10)+" y tener "+fmt(5000*(rebirthCount+1))+" para renacer.";
+ $("rebirthBtn").disabled=selected<Math.min(199,(rebirthCount+1)*10-1)||money<5000*(rebirthCount+1);
+ renderLeaderboard();
 }
-function hit(){
- if(hitLock||stamina<10)return;hitLock=true;stamina-=10;hp-=power;$("bear").classList.add("hit");setTimeout(()=>$("bear").classList.remove("hit"),130);
- if(hp<=0){money+=bears[selected].reward;notify("¡Oso superado! Ganaste "+fmt(bears[selected].reward));hp=bears[selected].hp;day++;if(day>7){day=1;debtPaid=false;debt=Math.ceil(debt*1.25+25);notify("¡Nueva semana! Tu deuda ahora es "+fmt(debt));}}
- else notify("¡Buen golpe! Le quedan "+hp+" puntos de vida.");
- setTimeout(()=>{hitLock=false;render()},Math.max(120,520-speed*65));render();
-}
+function gain(amount){money+=Math.floor(amount*Math.pow(2,rebirthCount)*bonus);bonus=1}
+function defeat(){gain(bears[selected].reward);beep(660,.18,"triangle");note("¡Oso vencido! Ganaste "+fmt(bears[selected].reward*Math.pow(2,rebirthCount))+" · ¡Bien ahí!");hp=bears[selected].hp;day++;if(day>7){day=1;debtPaid=false;debt=Math.ceil(debt*1.25+25);note("¡Nueva semana! La deuda subió a "+fmt(currentDebt()))}saveScore()}
+function hit(){if(hitLock||stamina<10)return;hitLock=true;stamina-=10;let damage=power+hammers[hammerIndex].damage-1;if(Math.random()<crit/100)damage*=3;hp-=damage;$("bear").classList.add("hit");beep(130+Math.min(400,damage*3),.07,"square");setTimeout(()=>$("bear").classList.remove("hit"),170);if(hp<=0)defeat();else note("¡PUM! Daño: "+damage+" · Le quedan "+Math.max(0,hp));setTimeout(()=>{hitLock=false;render()},Math.max(100,480-speed*35));render()}
+function save(){localStorage.setItem("teddyHammerSave",JSON.stringify({money,power,speed,maxStamina,stamina,day,debt,debtPaid,selected,rebirthCount,hammerIndex,ownedHammers,ownedUpgrades,ownedBears,discount,debtReduction,regen,bonus,crit,player}))}
+function load(){try{let s=JSON.parse(localStorage.getItem("teddyHammerSave")||"{}");Object.assign(window,{}) ;["money","power","speed","maxStamina","stamina","day","debt","debtPaid","selected","rebirthCount","hammerIndex","ownedHammers","ownedUpgrades","ownedBears","discount","debtReduction","regen","bonus","crit","player"].forEach(k=>{if(s[k]!==undefined)eval(k+" = s[k]")});hp=bears[selected].hp}catch(e){}}
+function saveScore(){let scores=JSON.parse(localStorage.getItem("teddyLocalRanking")||"[]");let old=scores.find(s=>s.name===player);let score=Math.floor(money+rebirthCount*100000+selected*1000);if(old)old.score=Math.max(old.score,score);else scores.push({name:player,score});scores.sort((a,b)=>b.score-a.score);localStorage.setItem("teddyLocalRanking",JSON.stringify(scores.slice(0,10)))}
+function renderLeaderboard(){let scores=JSON.parse(localStorage.getItem("teddyLocalRanking")||"[]");$("leaderboard").innerHTML=scores.length?scores.map((s,i)=>'<div class="leaderrow"><span>'+(i+1)+'. '+s.name+'</span><b>'+fmt(s.score)+'</b></div>').join(""):'<p class="muted">Todavía no hay puntuaciones. ¡Jugá para aparecer!</p>'}
+function buyUpgrade(id){let u=upgrades[id];if(ownedUpgrades.includes(id)||money<u.cost)return;money-=Math.ceil(u.cost*(1-discount/100));ownedUpgrades.push(id);if(u.type==="damage")power+=u.amount;if(u.type==="speed")speed+=u.amount;if(u.type==="regen")regen+=u.amount;if(u.type==="stamina"){maxStamina+=u.amount*20;stamina=maxStamina}if(u.type==="debt")debtReduction=Math.min(80,debtReduction+u.amount*2);if(u.type==="discount")discount=Math.min(50,discount+u.amount);if(u.type==="crit")crit=Math.min(80,crit+u.amount*2);if(u.type==="bonus")bonus+=u.amount*.1;beep(520,.12,"sine");note("¡Mejora comprada: "+u.name+"!");save();render()}
 $("hitBtn").addEventListener("click",hit);
-$("powerBuy").addEventListener("click",()=>{let c=30*powerLevel;if(money>=c){money-=c;power++;powerLevel++;notify("¡Martillo más fuerte!")}render()});
-$("speedBuy").addEventListener("click",()=>{let c=40*speedLevel;if(money>=c){money-=c;speed++;speedLevel++;notify("¡Martillás más rápido!")}render()});
-$("energyBuy").addEventListener("click",()=>{let c=50*energyLevel;if(money>=c){money-=c;maxStamina+=20;stamina=maxStamina;energyLevel++;notify("¡Más estamina máxima!")}render()});
-$("payDebt").addEventListener("click",()=>{if(!debtPaid&&money>=debt){money-=debt;debtPaid=true;notify("¡Deuda pagada! Buen trabajo.")}render()});
-document.querySelectorAll("[data-bear]").forEach(()=>{});
-setInterval(()=>{if(stamina<maxStamina){stamina=Math.min(maxStamina,stamina+2+speedLevel*.25);render()}},500);
-render();
+$("payDebt").addEventListener("click",()=>{let d=currentDebt();if(!debtPaid&&money>=d){money-=d;debtPaid=true;beep(520);note("¡Deuda pagada!");save()}render()});
+$("rebirthBtn").addEventListener("click",()=>{let cost=5000*(rebirthCount+1);if(money<cost||selected<Math.min(199,(rebirthCount+1)*10-1))return;rebirthCount++;money=0;power=1;speed=1;maxStamina=100;stamina=100;selected=0;hp=bears[0].hp;hammerIndex=0;ownedHammers=1;ownedBears=1;ownedUpgrades=[];discount=0;debtReduction=0;day=1;debt=100;debtPaid=false;beep(880,.3,"triangle");note("¡RENACIMIENTO! Ahora ganás x"+Math.pow(2,rebirthCount)+" monedas.");save();render()});
+document.addEventListener("click",e=>{let t=e.target;if(t.dataset.hammer!==undefined){let i=+t.dataset.hammer;if(i<ownedHammers){hammerIndex=i}else if(i===ownedHammers&&money>=hammers[i].cost){money-=Math.ceil(hammers[i].cost*(1-discount/100));ownedHammers++;hammerIndex=i;beep(500);note("¡Nuevo martillo desbloqueado!")}save();render()}if(t.dataset.upgrade!==undefined)buyUpgrade(+t.dataset.upgrade);if(t.dataset.bear!==undefined){let i=+t.dataset.bear;if(i<ownedBears){selected=i;hp=bears[i].hp}else if(i===ownedBears&&money>=bears[i].cost){money-=Math.ceil(bears[i].cost*(1-discount/100));ownedBears++;selected=i;hp=bears[i].hp;beep(600);note("¡Nuevo oso desbloqueado!")}save();render()}if(t.dataset.special!==undefined){let s=specials[+t.dataset.special];if(money<s.cost){note("No te alcanza para ese objeto.");return}money-=s.cost;if(s.type==="damage")power*=2;if(s.type==="speed")speed+=5;if(s.type==="bonus")bonus=2;if(s.type==="energy")stamina=maxStamina;beep(740,.15,"triangle");note("¡Activaste "+s.name+"!");save();render()}});
+document.querySelectorAll("[data-upgrade-tab]").forEach(b=>b.addEventListener("click",()=>{upgradeTab=b.dataset.upgradeTab;document.querySelectorAll("[data-upgrade-tab]").forEach(x=>x.classList.toggle("active",x===b));render()}));
+$("bearSearch").addEventListener("input",render);$("saveName").addEventListener("click",()=>{player=$("playerName").value.trim().slice(0,18)||"Jugador";saveScore();save();render()});
+$("soundToggle").addEventListener("click",()=>{soundOn=!soundOn;$("soundToggle").textContent=soundOn?"Silenciar":"Activar sonido";beep(440)});
+$("adminLogin").addEventListener("click",()=>{if($("adminCode").value==="TEDDY-ADMIN-7264"){admin=true;$("adminTools").hidden=false;note("Panel admin abierto.");beep(700)}else note("Código incorrecto.")});
+$("giveMoney").addEventListener("click",()=>{if(!admin)return;money+=Math.max(0,Number($("adminMoney").value)||0);save();render()});
+$("unlockAll").addEventListener("click",()=>{if(!admin)return;ownedBears=200;ownedHammers=100;money=Math.max(money,1000000);save();render();note("Contenido desbloqueado para pruebas.")});
+$("clearSave").addEventListener("click",()=>{if(!admin)return;if(confirm("¿Seguro que querés reiniciar tu partida?")){localStorage.removeItem("teddyHammerSave");location.reload()}});
+setInterval(()=>{if(stamina<maxStamina){stamina=Math.min(maxStamina,stamina+regen);render()}},500);
+load();$("playerName").value=player;render();
 </script>
 </body></html>
