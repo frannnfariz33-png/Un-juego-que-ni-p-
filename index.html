@@ -87,8 +87,8 @@ function render(){
  $("debtInfo").textContent=debtPaid?"¡Deuda de esta semana pagada!":"La deuda vence al terminar el día 7.";
  $("debtStatus").textContent=debtPaid?"Pagada ✓":(day===7?"¡Vence hoy!":"Faltan "+(7-day)+" días para el vencimiento.");
  $("payDebt").disabled=debtPaid||money<debt;
- $("bearShop").innerHTML=bears.map((x,i)=>'<div class="shopItem"><div><b>'+x.emoji+' '+x.name+'</b><small>Recompensa: '+fmt(x.reward)+' · Vida: '+x.hp+'</small><small>'+(i<=selected?"Desbloqueado": "Desbloqueo: "+fmt(x.cost))+'</small></div><button data-bear="'+i+'" '+(i<=selected?"":"disabled")+'>'+(i===selected?"En uso":"Elegir")+'</button></div>').join("");
- document.querySelectorAll("[data-bear]").forEach(btn=>btn.addEventListener("click",()=>{selected=+btn.dataset.bear;hp=bears[selected].hp;notify("¡"+bears[selected].name+" equipado!");render()}));
+ $("bearShop").innerHTML=bears.map((x,i)=>'<div class="shopItem"><div><b>'+x.emoji+' '+x.name+'</b><small>Recompensa: '+fmt(x.reward)+' · Vida: '+x.hp+'</small><small>'+(i<=selected?"Desbloqueado": "Desbloqueo: "+fmt(x.cost))+'</small></div><button data-bear="'+i+'" '+(i<=selected?"":"")+'>'+(i===selected?"En uso":(i<selected?"Elegir":(i===selected+1?"Comprar":"Bloqueado")))+'</button></div>').join("");
+ document.querySelectorAll("[data-bear]").forEach(btn=>btn.addEventListener("click",()=>{const i=+btn.dataset.bear;if(i===selected)return;if(i<selected){selected=i;hp=bears[selected].hp;notify("¡"+bears[selected].name+" equipado!")}else if(i===selected+1&&money>=bears[i].cost){money-=bears[i].cost;selected=i;hp=bears[selected].hp;notify("¡Compraste "+bears[selected].name+"!")}else if(i===selected+1){notify("No tenés suficiente dinero.")}else{notify("Desbloqueá primero el oso anterior.")}render()}));
  $("hitBtn").disabled=stamina<10||hitLock;
 }
 function hit(){
